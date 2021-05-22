@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import firebaseDatabase from '@shared/infra/firebase';
 
-import { uuid } from 'uuidv4';
+const uuidv4 = require('uuidv4');
 import ICompanyDTO from '@modules/companies/dtos/ICompanyDTO';
 
 import ICompanyRepository from '@modules/companies/repositories/ICompanyRepository';
@@ -31,7 +31,8 @@ class CompaniesRepository implements ICompanyRepository {
         address
         
         }: ICreateCompanyDTO): Promise<ICompanyDTO> {
-        const id  = uuid();
+          console.log(uuidv4())
+        const id  = uuidv4();
         const data = {
             id,
             name,
